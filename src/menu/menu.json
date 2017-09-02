@@ -1,0 +1,37 @@
+[
+  {
+    "guest": true,
+    "user": true,
+    "admin": true,
+    "link": "#/",
+    "text": "Home"
+  },
+  {
+    "guest": false,
+    "user": true,
+    "admin": true,
+    "link": "#/about",
+    "text": "About"
+  },
+  {
+    "guest": false,
+    "user": true,
+    "admin": true,
+    "link": "#/contacts",
+    "text": "Contacts"
+  },
+  {
+    "guest": false,
+    "user": false,
+    "admin": true,
+    "link": "#/admin",
+    "text": "Admin"
+  },
+  {
+    "guest": true,
+    "user": false,
+    "admin": false,
+    "link": "#/login",
+    "text": "Login"
+  }
+]

@@ -1,0 +1,85 @@
+#login-page{
+  width: 90%;
+  max-width: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  @include box-sizing();
+  border: 2px solid $green;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+  padding: 20px;
+  @include transition(all .5s ease-out);
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  .authorization-form{
+    width: 100%;
+    font-family: 'Helvetica', 'sans-serif';
+    &__title{
+      line-height: 1;
+      padding: 0;
+      margin: 0;
+      padding-bottom: 10px;
+      color: $light-green;
+    }
+    &__label{
+      display: block;
+      padding: 10px 0;
+    }
+    &__input{
+      width: 100%;
+      padding: 5px;
+      @include box-sizing();
+      border: none;
+      border-bottom: 1px solid $grey;
+      outline: none;
+      &:focus{
+        border-bottom: 1px solid $light-green;
+      }
+    }
+    &__submit_btn{
+      margin: 10px 0;
+      padding: 10px 20px;
+      border: 2px solid $green;
+      background: #fff;
+      color: $green;
+      font-size: 16px;
+      font-weight: 500;
+      @include transition(all .2s ease-out);
+      -webkit-border-radius: 10px;
+              border-radius: 10px;
+      -webkit-transform: scale(1);
+         -moz-transform: scale(1);
+          -ms-transform: scale(1);
+           -o-transform: scale(1);
+              transform: scale(1);
+      &:hover,
+      &:active{
+        color: #fff;
+        background: $green;
+      }
+      &:active{
+        -webkit-transform: scale(.8);
+           -moz-transform: scale(.8);
+            -ms-transform: scale(.8);
+             -o-transform: scale(.8);
+                transform: scale(.8);
+      }
+    }
+  }
+  .output{
+    font-family: 'Helvetica', 'sans-serif';
+    font-size: 18px;
+    text-align: center;
+    padding: 0 20px;
+    &.good{
+      color: $green;
+    }
+    &.bad{
+      color: $red;
+    }
+  }
+}

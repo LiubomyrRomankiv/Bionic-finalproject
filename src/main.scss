@@ -1,0 +1,95 @@
+$green: #4b834e;
+$light-green: #47a84c;
+$grey: #98999b;
+$red: #a00e1f;
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin box-sizing(){
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: none;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+body{
+  background: #fff;
+  font-family:  sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+#header{
+  display: block;
+  background: rgba(0,0,0,.8);
+  padding: 0px 20px;
+  margin: 0;
+}
+
+.menu-item{
+  display: inline-block;
+  padding: 10px;
+  margin: 3px;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #FFF;
+  background: $green;
+  font-weight: normal;
+  text-decoration: none;
+  &:hover,
+  &:active,
+  &.active{
+    background: $light-green;
+    font-weight: bold;
+  }
+}
+
+#user-menu{
+  float: right;
+  overflow: hidden;
+  & p{
+    display: inline-block;
+    color: #FFF;
+    padding: 0 20px;
+    margin: 0;
+    line-height: 40px;
+  }
+  & button{
+    outline: none;
+    border: 1px none;
+  }
+}
+
+.users-list{
+  & li p{
+    padding: 5px 20px;
+    border-bottom: 2px solid $green;
+    color: $green;
+    & span{
+      display: inline-block;
+      font-size: 12px;
+      color: $grey;
+      padding-left: 30px;
+    }  
+  }
+}
+
+
+
+@import './pages/login/login.page';
+@import './menu/menu';

@@ -40,6 +40,9 @@ class Menu {
   drawActiveMenuItemsHash(menu) {
     let menuItems = menu.querySelectorAll('.menu-item a');
     let hash = location.hash;
+    if(hash === ''){
+      hash = '#/'
+    }
     let active = _.find(menuItems, (item) => {
       let href = item.getAttribute('href');
       return href === hash;

@@ -15,13 +15,12 @@ class HomePage extends Page {
   }
   goTest() {
     let userNameInput = document.querySelector('.newuser-nameinput');
-    let userName = '';
     let link = document.querySelector('.test-link');
 
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log(this);
-      let hash = this.getAttribute('href');
+      let hash = e.target.hash;
+      let userName = userNameInput.value;
       if (userName) {
         router.renderPage(hash);
       }

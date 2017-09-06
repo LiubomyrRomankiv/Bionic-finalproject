@@ -7,18 +7,11 @@
     "text": "Home"
   },
   {
-    "guest": false,
+    "guest": true,
     "user": true,
     "admin": true,
-    "link": "#/about",
-    "text": "About"
-  },
-  {
-    "guest": false,
-    "user": true,
-    "admin": true,
-    "link": "#/contacts",
-    "text": "Contacts"
+    "link": "#/test",
+    "text": "Test"
   },
   {
     "guest": false,

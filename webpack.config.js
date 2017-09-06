@@ -40,5 +40,10 @@ module.exports = {
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist')
+  },
+  resolve: {
+    alias: {
+      'handlebars': 'handlebars/dist/handlebars.min.js'
+    }
   }
 };

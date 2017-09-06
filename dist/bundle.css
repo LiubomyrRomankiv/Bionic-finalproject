@@ -19,7 +19,7 @@ body {
   padding: 0px 20px;
   margin: 0; }
 
-.menu-item {
+.menu-item a {
   display: inline-block;
   padding: 10px;
   margin: 3px;
@@ -29,7 +29,7 @@ body {
   background: #4b834e;
   font-weight: normal;
   text-decoration: none; }
-  .menu-item:hover, .menu-item:active, .menu-item.active {
+  .menu-item a:hover, .menu-item a:active, .menu-item a.active {
     background: #47a84c;
     font-weight: bold; }
 

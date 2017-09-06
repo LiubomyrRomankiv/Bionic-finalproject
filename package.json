@@ -1,5 +1,5 @@
 {
-  "name": "lesson8",
+  "name": "finalProject",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -27,6 +27,7 @@
     "webpack": "^3.4.1"
   },
   "dependencies": {
+    "handlebars": "^4.0.10",
     "lodash": "^4.17.4",
     "webpack-dev-server": "^2.6.1"
   }

@@ -1,7 +1,7 @@
 'use strict';
 
 import router from 'router';
-import menu from '../../menu';
+import menu from 'menu';
 import Page from '../page';
 import homePageContent from './home.page.html';
 

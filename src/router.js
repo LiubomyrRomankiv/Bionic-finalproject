@@ -7,7 +7,6 @@ import loginPage from './pages/login/login.page';
 import testPage from './pages/test/test.page';
 import adminPage from './pages/admin/admin.page';
 
-import Menu from './menu';
 import user from './user';
 
 let pages = [homePage, loginPage, testPage, adminPage];

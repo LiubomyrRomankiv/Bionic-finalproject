@@ -21,7 +21,7 @@ class Page {
     selector.innerHTML = '<h1>Page not found!</h1>';
   }
 
-  render(){
+  render() {
     let parentElement = document.querySelector(this.selector);
     let html = handlebars.compile(this.content)(this.data);
 

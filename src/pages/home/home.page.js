@@ -2,18 +2,16 @@
 
 import router from 'router';
 import menu from 'menu';
+import test from 'test';
 import helpers from '../../helpers';
 import Page from '../page';
 import homePageContent from './home.page.html';
-import testContent from 'test/test.html';
-
-import questions from 'test/tests.json';
+// import shortid from 'shortid';
 
 class HomePage extends Page {
   constructor(url){
     super(url);
     this.content = homePageContent;
-    this.data = { title: 'This is Home Page' };
   }
   whenPageRendered() {
     this.goTest();
@@ -28,12 +26,10 @@ class HomePage extends Page {
         let hash = e.target.hash;
         let userName = userNameInput.value;
         if (userName) {
-          this.content = testContent;
+          this.content = test.getTemplate();
+          let questions = test.getData();
           this.data = { questions, name: userName };
           this.render();
-          // router.renderPage(hash);
-          // window.location.hash = hash;
-          // menu.drawActiveMenuItems(hash);
         }
       });
     }

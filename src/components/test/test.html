@@ -1,19 +1,20 @@
-<div id="about-page">
+<div id="test">
   <h2>Hello, {{name}}. Let's start!</h2>
   <ul>
     {{#each questions}}
-      <h3 class="question">{{question}}</h3>
+      <h3 class="question" id="{{id}}">{{question}}</h3>
       {{#if answers}}
         <ul class="answers">
           {{#each answers}}
-            <li><input type="{{../type}}" value="{{text}}" name="q{{@../index}}" id="q{{@../index}}-ans{{@index}}">{{text}}</li>
+            <li><input type="{{../type}}" value="{{text}}" name="{{../id}}" id="{{../id}}-ans{{@index}}">{{text}}</li>
           {{/each}}
         </ul>
       {{else}}
-        <input type="text" name="q{{@index}}" id="q{{@index}}-anstext" />
+        <input type="text" name="{{id}}" id="{{id}}-ans" />
       {{/if}}
-      
     {{/each}}
   </ul>
   <button class="btn finishtest-btn">Finish test</button>
+
+  <p class="output"></p>
 </div>

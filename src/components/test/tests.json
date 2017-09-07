@@ -1,5 +1,6 @@
 [
   {
+    "id": "BklCW6RYZ",
     "question": "question 1",
     "type": "radio",
     "answers": [
@@ -22,6 +23,7 @@
     ]
   },
   {
+    "id": "HyJxf6CYZ",
     "question": "question 2",
     "type": "checkbox",
     "answers": [
@@ -44,11 +46,13 @@
     ]
   },
   {
+    "id": "BJPxMpAFb",
     "question": "question 3",
     "type": "text",
     "correct": "єєєєєєєєєє"
   },
   {
+    "id": "HkxWz6CFb",
     "question": "question 4",
     "type": "radio",
     "answers": [
@@ -71,6 +75,7 @@
     ]
   },
   {
+    "id": "HyFbMaCtb",
     "question": "question 5",
     "type": "checkbox",
     "answers": [

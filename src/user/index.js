@@ -2,8 +2,8 @@
 
 import users from './users';
 import dom from '../dom';
-import menu from '../menu';
-import router from '../router';
+import menu from 'menu';
+import router from 'router';
 
 let init = () => {
   let isUser = localStorage.getItem("user");

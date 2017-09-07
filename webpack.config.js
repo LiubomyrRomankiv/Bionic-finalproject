@@ -45,7 +45,8 @@ module.exports = {
     alias: {
       'handlebars': 'handlebars/dist/handlebars.min.js',
       'router': path.resolve(__dirname, './src/router.js'),
-      'menu': path.resolve(__dirname, './src/menu')
+      'menu': path.resolve(__dirname, './src/components/menu'),
+      'test': path.resolve(__dirname, './src/components/test')
     }
   }
 };

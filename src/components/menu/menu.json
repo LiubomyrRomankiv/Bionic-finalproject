@@ -7,13 +7,6 @@
     "text": "Home"
   },
   {
-    "guest": true,
-    "user": true,
-    "admin": true,
-    "link": "#/test",
-    "text": "Test"
-  },
-  {
     "guest": false,
     "user": false,
     "admin": true,

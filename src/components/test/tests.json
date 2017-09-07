@@ -1,7 +1,8 @@
 [
   {
     "question": "question 1",
-    "single": [
+    "type": "radio",
+    "answers": [
       {
         "text": "answer 1",
         "correct": false
@@ -22,7 +23,8 @@
   },
   {
     "question": "question 2",
-    "multiple": [
+    "type": "checkbox",
+    "answers": [
       {
         "text": "answer 1",
         "correct": false
@@ -43,28 +45,13 @@
   },
   {
     "question": "question 3",
-    "single": [
-      {
-        "text": "answer 1",
-        "correct": false
-      },
-      {
-        "text": "answer 2",
-        "correct": false
-      },
-      {
-        "text": "answer 3",
-        "correct": true
-      },
-      {
-        "text": "answer 4",
-        "correct": false
-      }
-    ]
+    "type": "text",
+    "correct": "єєєєєєєєєє"
   },
   {
     "question": "question 4",
-    "single": [
+    "type": "radio",
+    "answers": [
       {
         "text": "answer 1",
         "correct": false
@@ -85,7 +72,8 @@
   },
   {
     "question": "question 5",
-    "multiple": [
+    "type": "checkbox",
+    "answers": [
       {
         "text": "answer 1",
         "correct": false

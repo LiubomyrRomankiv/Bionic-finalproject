@@ -4,7 +4,7 @@ import _ from 'lodash';
 import handlebars from 'handlebars';
 
 import router from 'router';
-import user from '../user';
+// import user from '../user';
 import menuTemplate from './menu.html';
 import menuItemsList from './menu.json';
 

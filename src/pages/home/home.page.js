@@ -2,8 +2,12 @@
 
 import router from 'router';
 import menu from 'menu';
+import helpers from '../../helpers';
 import Page from '../page';
 import homePageContent from './home.page.html';
+import testContent from 'test/test.html';
+
+import questions from 'test/tests.json';
 
 class HomePage extends Page {
   constructor(url){
@@ -18,16 +22,21 @@ class HomePage extends Page {
     let userNameInput = document.querySelector('.newuser-nameinput');
     let link = document.querySelector('.test-link');
 
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      let hash = e.target.hash;
-      let userName = userNameInput.value;
-      if (userName) {
-        router.renderPage(hash);
-        window.location.hash = hash;
-        menu.drawActiveMenuItems(hash);
-      }
-    });
+    if(link) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        let hash = e.target.hash;
+        let userName = userNameInput.value;
+        if (userName) {
+          this.content = testContent;
+          this.data = { questions, name: userName };
+          this.render();
+          // router.renderPage(hash);
+          // window.location.hash = hash;
+          // menu.drawActiveMenuItems(hash);
+        }
+      });
+    }
   }
 }
 

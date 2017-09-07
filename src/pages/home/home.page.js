@@ -1,7 +1,8 @@
 'use strict';
 
+import router from 'router';
+import menu from '../../menu';
 import Page from '../page';
-import router from '../../router';
 import homePageContent from './home.page.html';
 
 class HomePage extends Page {
@@ -23,6 +24,8 @@ class HomePage extends Page {
       let userName = userNameInput.value;
       if (userName) {
         router.renderPage(hash);
+        window.location.hash = hash;
+        menu.drawActiveMenuItems(hash);
       }
     });
   }

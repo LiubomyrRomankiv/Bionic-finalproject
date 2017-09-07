@@ -2,11 +2,10 @@
 
 import './main.scss';
 
-import router from './router';
+import router from 'router';
 import user from './user';
-import Menu from './menu';
+import menu from './menu';
 
 router.init();
 user.init();
-let menu = new Menu();
-menu.render();
+menu.init();

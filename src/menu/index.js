@@ -22,7 +22,7 @@ class Menu {
     };
   }
 
-  drawActiveMenuItems(item) {
+  drawActiveMenuItems(hash) {
     let menu = document.querySelector(this.selector);
     let activeMenuItem = menu.querySelector('.active');
 
@@ -30,33 +30,39 @@ class Menu {
       activeMenuItem.classList.remove('active');
     }
 
-    if(!!item){
-      item.classList.add('active');
-    } else {
-      this.drawActiveMenuItemsHash(menu);
-    }
+    this.drawActiveMenuItemsHash(menu, hash);
   };
 
-  drawActiveMenuItemsHash(menu) {
+  drawActiveMenuItemsHash(menu, hash) {
     let menuItems = menu.querySelectorAll('.menu-item a');
-    let hash = location.hash;
-    if(hash === ''){
-      hash = '#/'
+    let activeItemHash;
+    
+    if(!hash){
+      activeItemHash = window.location.hash;
+    } else {
+      activeItemHash = hash;
     }
+
+    if(activeItemHash === ''){
+      activeItemHash = '#/'
+    }
+
     let active = _.find(menuItems, (item) => {
       let href = item.getAttribute('href');
-      return href === hash;
+      return href === activeItemHash;
     });
     active.classList.add('active');
   }
 
   init() {
+    this.render();
+    this.drawActiveMenuItems();
     let menu = document.querySelector(this.selector);
 
     menu.addEventListener('click', (e) => {
       let hash = e.target.getAttribute('href');
       router.renderPage(hash);
-      this.drawActiveMenuItems(e.target);
+      this.drawActiveMenuItems(hash);
     }, true);
   }
 
@@ -64,10 +70,9 @@ class Menu {
     let parentElement = document.querySelector(this.selector);
     let html = handlebars.compile(this.content)(this.data);
     parentElement.innerHTML = html;
-
-    this.init();
-    this.drawActiveMenuItems();
   }
 }
 
-export default Menu;
+let menu = new Menu();
+
+export default menu;

@@ -43,7 +43,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'handlebars': 'handlebars/dist/handlebars.min.js'
+      'handlebars': 'handlebars/dist/handlebars.min.js',
+      'router': path.resolve(__dirname, './src/router.js')
     }
   }
 };

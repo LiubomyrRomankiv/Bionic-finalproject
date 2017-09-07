@@ -10,14 +10,11 @@ import adminPage from './pages/admin/admin.page';
 import Menu from './menu';
 import user from './user';
 
-let menu = new Menu();
-
 let pages = [homePage, loginPage, testPage, adminPage];
 
 let init = () => {
   let url = window.location.hash;
   renderPage(url);
-  // menu.render();
 };
 
 let renderPage = (hash) => {
@@ -28,6 +25,7 @@ let renderPage = (hash) => {
 let redirectToPage = (href) => {
   renderPage(href);
   window.location.href = href;
+
   // let pageMenuItem = document.querySelector('.menu-item[href="'+href+'"]');
   // menu.drawActiveMenuItems( pageMenuItem );
 }

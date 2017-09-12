@@ -3,6 +3,7 @@
 import Page from '../page';
 import user from 'user';
 import router from 'router';
+import userMenu from 'usermenu';
 
 import loginPageContent from './login.page.html';
 
@@ -34,7 +35,7 @@ class LoginPage extends Page {
 
   hideErrorMessage(authorizationForm) {
     let authorizationInputs = authorizationForm.querySelectorAll('.authorization-form__input');
-    
+
     for(let i = 0; i < authorizationInputs.length; i++){
       authorizationInputs[i].addEventListener('focus', function(){
         let output = document.querySelector('.output');
@@ -51,7 +52,7 @@ class LoginPage extends Page {
     if(newActiveUser) {
       user.setActiveUser(newActiveUser);
       router.redirectToPage('/#');
-      user.userMenu();
+      userMenu.init();
     } else {
       document.querySelector('.output').classList.add('show');
     }

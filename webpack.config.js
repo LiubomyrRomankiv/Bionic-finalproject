@@ -47,7 +47,8 @@ module.exports = {
       'router': path.resolve(__dirname, './src/router.js'),
       'menu': path.resolve(__dirname, './src/components/menu'),
       'test': path.resolve(__dirname, './src/components/test'),
-      'user': path.resolve(__dirname, './src/user')
+      'user': path.resolve(__dirname, './src/user'),
+      'usermenu': path.resolve(__dirname, './src/components/usermenu')
     }
   }
 };

@@ -46,7 +46,8 @@ module.exports = {
       'handlebars': 'handlebars/dist/handlebars.min.js',
       'router': path.resolve(__dirname, './src/router.js'),
       'menu': path.resolve(__dirname, './src/components/menu'),
-      'test': path.resolve(__dirname, './src/components/test')
+      'test': path.resolve(__dirname, './src/components/test'),
+      'user': path.resolve(__dirname, './src/user')
     }
   }
 };

@@ -1,8 +1,10 @@
 'use strict';
 
 import Page from '../page';
+import user from 'user';
+import router from 'router';
+
 import loginPageContent from './login.page.html';
-import user from '../../user';
 
 class LoginPage extends Page {
   constructor(url){
@@ -13,9 +15,8 @@ class LoginPage extends Page {
     this.authorization();
   }
 
-  authorization(){
+  authorization() {
     let authorizationForm = document.getElementById('authorization-form');
-    let authorizationInputs = authorizationForm.querySelectorAll('.authorization-form__input');
 
     authorizationForm.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -23,18 +24,36 @@ class LoginPage extends Page {
         login: this.login.value,
         pass: this.password.value
       }
-      user.userAuthorization(userData, 'login-page');
+      LoginPage.prototype.findUser(userData);
       this.login.value = '';
       this.password.value = '';
     });
 
+    this.hideErrorMessage(authorizationForm);
+  }
+
+  hideErrorMessage(authorizationForm) {
+    let authorizationInputs = authorizationForm.querySelectorAll('.authorization-form__input');
+    
     for(let i = 0; i < authorizationInputs.length; i++){
       authorizationInputs[i].addEventListener('focus', function(){
         let output = document.querySelector('.output');
         if(!!output){
-          document.querySelector('#login-page').removeChild(output);
+          document.querySelector('.output').classList.remove('show');
         }
       });
+    }
+  }
+
+  findUser(userData) {
+    let newActiveUser = user.findUser(userData);
+    let wraper = document.getElementById('login-page');
+    if(newActiveUser) {
+      user.setActiveUser(newActiveUser);
+      router.redirectToPage('/#');
+      user.userMenu();
+    } else {
+      document.querySelector('.output').classList.add('show');
     }
   }
 }

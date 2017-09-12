@@ -71,15 +71,16 @@
     }
   }
   .output{
+    display: none;
     font-family: 'Helvetica', 'sans-serif';
     font-size: 18px;
     text-align: center;
     padding: 0 20px;
-    &.good{
-      color: $green;
-    }
     &.bad{
       color: $red;
+    }
+    &.show{
+      display: block;
     }
   }
 }

@@ -34,6 +34,14 @@ body{
   margin: 0;
 }
 
+button{
+  border: none;
+  outline: none !important;
+  background:none;
+  padding: 0;
+  outline-style: none !important;
+}
+
 #header{
   display: block;
   background: rgba(0,0,0,.8);

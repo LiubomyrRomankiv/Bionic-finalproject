@@ -13,6 +13,13 @@ body {
   padding: 0;
   margin: 0; }
 
+button {
+  border: none;
+  outline: none !important;
+  background: none;
+  padding: 0;
+  outline-style: none !important; }
+
 #header {
   display: block;
   background: rgba(0, 0, 0, 0.8);
@@ -132,14 +139,15 @@ body {
         -o-transform: scale(0.8);
         transform: scale(0.8); }
   #login-page .output {
+    display: none;
     font-family: 'Helvetica', 'sans-serif';
     font-size: 18px;
     text-align: center;
     padding: 0 20px; }
-    #login-page .output.good {
-      color: #4b834e; }
     #login-page .output.bad {
       color: #a00e1f; }
+    #login-page .output.show {
+      display: block; }
 
 ul.menu {
   overflow: hidden; }

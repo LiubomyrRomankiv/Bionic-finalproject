@@ -2,11 +2,11 @@
 
 import _ from 'lodash';
 
+import menu from 'menu';
+
 import homePage from './pages/home/home.page';
 import loginPage from './pages/login/login.page';
 import adminPage from './pages/admin/admin.page';
-
-import user from './user';
 
 let pages = [ homePage, loginPage, adminPage ];
 
@@ -18,6 +18,7 @@ let init = () => {
 let renderPage = (hash) => {
   let page = _.find(pages, {url: hash});
   page ? page.render() : homePage.render();
+  // menu.drawActiveMenuItems(hash);
 };
 
 let redirectToPage = (hash) => {

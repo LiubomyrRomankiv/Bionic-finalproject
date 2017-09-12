@@ -4,7 +4,8 @@ import _ from 'lodash';
 import handlebars from 'handlebars';
 
 import router from 'router';
-// import user from '../user';
+import user from 'user';
+
 import menuTemplate from './menu.html';
 import menuItemsList from './menu.json';
 
@@ -13,8 +14,8 @@ const DEFAULT_MENU_TEMPLATE = menuTemplate;
 const DEFAULT_MENU_DATA = menuItemsList;
 
 class Menu {
-  constructor(user = 'guest', content = DEFAULT_MENU_TEMPLATE, selector = DEFAULT_MENU_SELECTOR, data = DEFAULT_MENU_DATA) {
-    this.user = user;
+  constructor(content = DEFAULT_MENU_TEMPLATE, selector = DEFAULT_MENU_SELECTOR, data = DEFAULT_MENU_DATA) {
+    this.user = user.getStatus();
     this.selector = selector;
     this.content = content;
     this.data = {
@@ -43,7 +44,7 @@ class Menu {
       activeItemHash = hash;
     }
 
-    if(activeItemHash === ''){
+    if(activeItemHash === '' || activeItemHash === '#'){
       activeItemHash = '#/'
     }
 
@@ -67,8 +68,9 @@ class Menu {
   }
 
   render() {
+    let menu = _.filter(this.data.menu, this.user);
     let parentElement = document.querySelector(this.selector);
-    let html = handlebars.compile(this.content)(this.data);
+    let html = handlebars.compile(this.content)({ menu });
     parentElement.innerHTML = html;
   }
 }

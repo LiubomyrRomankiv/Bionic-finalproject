@@ -5,6 +5,7 @@ import handlebars from 'handlebars';
 
 import router from 'router';
 import user from 'user';
+import menu from 'menu';
 
 import menuTemplate from './usermenu.html';
 
@@ -13,23 +14,22 @@ const DEFAULT_USERMENU_TEMPLATE = menuTemplate;
 
 class UserMenu {
   constructor( content = DEFAULT_USERMENU_TEMPLATE, selector = DEFAULT_USERMENU_SELECTOR ) {
-    // this.user = user.getStatus();
     this.selector = selector;
     this.content = content;
-    // this.data = {
-    //   menu: data
-    // };
   }
 
   init() {
     this.render();
 
     let parentElement = document.querySelector(this.selector);
+    let that = this;
     parentElement.addEventListener('click', function(e){
       let id = e.target.getAttribute('id');
       if ( id === 'logout-btn' ){
         user.removeUser();
         router.redirectToPage('/#');
+        that.render();
+        menu.init();
       }
     });
   }

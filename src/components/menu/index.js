@@ -15,7 +15,6 @@ const DEFAULT_MENU_DATA = menuItemsList;
 
 class Menu {
   constructor(content = DEFAULT_MENU_TEMPLATE, selector = DEFAULT_MENU_SELECTOR, data = DEFAULT_MENU_DATA) {
-    this.user = user.getStatus();
     this.selector = selector;
     this.content = content;
     this.data = {
@@ -68,7 +67,7 @@ class Menu {
   }
 
   render() {
-    let menu = _.filter(this.data.menu, this.user);
+    let menu = _.filter(this.data.menu, user.getStatus());
     let parentElement = document.querySelector(this.selector);
     let html = handlebars.compile(this.content)({ menu });
     parentElement.innerHTML = html;

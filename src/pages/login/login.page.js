@@ -4,6 +4,7 @@ import Page from '../page';
 import user from 'user';
 import router from 'router';
 import userMenu from 'usermenu';
+import menu from 'menu';
 
 import loginPageContent from './login.page.html';
 
@@ -19,13 +20,14 @@ class LoginPage extends Page {
   authorization() {
     let authorizationForm = document.getElementById('authorization-form');
 
+    let that = this;
     authorizationForm.addEventListener('submit', function(e) {
       e.preventDefault();
       let userData = {
         login: this.login.value,
         pass: this.password.value
       }
-      LoginPage.prototype.findUser(userData);
+      that.findUser(userData);
       this.login.value = '';
       this.password.value = '';
     });
@@ -51,8 +53,10 @@ class LoginPage extends Page {
     let wraper = document.getElementById('login-page');
     if(newActiveUser) {
       user.setActiveUser(newActiveUser);
-      router.redirectToPage('/#');
+      menu.render();
+      console.log(menu.render);
       userMenu.init();
+      router.redirectToPage('/#');
     } else {
       document.querySelector('.output').classList.add('show');
     }

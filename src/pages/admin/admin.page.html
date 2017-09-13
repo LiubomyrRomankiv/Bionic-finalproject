@@ -1,3 +1,14 @@
 <div id="admin-page">
   <h1>This is admin page</h1>
+  <div class="questions-list">
+    {{#each tests}}
+      <div class="question-block question-block{{@index}}">
+        <p class="question-text">{{question}}</p>
+        <button class="btn btn-update" data-question="{{id}}">Update</button>
+        <button class="btn btn-delete" data-question="{{id}}">Delete</button>
+      </div>
+    {{/each}}
+
+    <div id="question-form_block" class="question-form_block"></div>
+  </div>
 </div>

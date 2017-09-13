@@ -1,17 +1,23 @@
 'use strict';
 
-import Page from '../page';
 import user from 'user';
 import router from 'router';
 import userMenu from 'usermenu';
 import menu from 'menu';
 
+import Page from '../page';
+import homePage from '../home/home.page';
 import loginPageContent from './login.page.html';
 
 class LoginPage extends Page {
   constructor(url){
     super(url);
     this.content = loginPageContent;
+    this.userStatus = {
+      guest: true,
+      user: false,
+      admin: false
+    };
   }
   whenPageRendered() {
     this.authorization();
@@ -54,8 +60,8 @@ class LoginPage extends Page {
     if(newActiveUser) {
       user.setActiveUser(newActiveUser);
       menu.render();
-      console.log(menu.render);
       userMenu.init();
+      homePage.setTestContent(newActiveUser.name);
       router.redirectToPage('/#');
     } else {
       document.querySelector('.output').classList.add('show');

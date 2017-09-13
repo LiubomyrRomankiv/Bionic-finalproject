@@ -51,7 +51,9 @@ class Menu {
       let href = item.getAttribute('href');
       return href === activeItemHash;
     });
-    active.classList.add('active');
+    if(active){
+      active.classList.add('active');
+    }
   }
 
   init() {

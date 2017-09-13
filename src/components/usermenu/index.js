@@ -6,6 +6,7 @@ import handlebars from 'handlebars';
 import router from 'router';
 import user from 'user';
 import menu from 'menu';
+import homePage from '../../pages/home/home.page';
 
 import menuTemplate from './usermenu.html';
 
@@ -27,6 +28,7 @@ class UserMenu {
       let id = e.target.getAttribute('id');
       if ( id === 'logout-btn' ){
         user.removeUser();
+        homePage.setDefaultContent();
         router.redirectToPage('/#');
         that.render();
         menu.init();

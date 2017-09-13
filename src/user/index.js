@@ -41,15 +41,12 @@ let getStatus = () => {
   if ( !!userData ){
     if ( userData && !!userData.name ) {
       if (userData.admin === true) {
-        // return 'admin';
-        return {admin: true}
+        return {admin: true};
       }
-      // return 'user';
-      return {user: true}
+      return {user: true};
     }
   }
-  // return 'guest';
-  return {guest: true}
+  return {guest: true};
 };
 
 export default {

@@ -9,6 +9,11 @@ class AdminPage extends Page {
   constructor(url){
     super(url);
     this.content = adminPageContent;
+    this.userStatus = {
+      guest: false,
+      user: false,
+      admin: true
+    };
   }
   whenPageRendered() {
     

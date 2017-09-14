@@ -59,10 +59,15 @@ class LoginPage extends Page {
     let wraper = document.getElementById('login-page');
     if(newActiveUser) {
       user.setActiveUser(newActiveUser);
-      menu.render();
       userMenu.init();
       homePage.setTestContent(newActiveUser.name);
-      router.redirectToPage('/#');
+      let isAdmin = newActiveUser.admin;
+      if(isAdmin){
+        router.redirectToPage('#/admin');
+      } else {
+        router.redirectToPage('/#');
+      }
+      menu.render();
     } else {
       document.querySelector('.output').classList.add('show');
     }

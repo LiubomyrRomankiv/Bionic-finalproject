@@ -61,12 +61,13 @@ class HomePage extends Page {
     let link = document.querySelector('.test-link');
 
     if(link) {
+      let that = this;
       link.addEventListener('click', (e) => {
         e.preventDefault();
         let hash = e.target.hash;
         let userName = userNameInput.value;
         if (userName) {
-          setTestContent(userName);
+          that.setTestContent(userName);
           this.render();
         }
       });

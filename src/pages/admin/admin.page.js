@@ -54,7 +54,21 @@ class AdminPage extends Page {
         this.renderQuestionForm();
         this.renderAnswers('radio');
         this.loadAnswers();
+        this.questionFormSubmit();
       });
+    });
+  }
+
+  questionFormSubmit() {
+    let questionForm = document.querySelector('.question-form');
+    questionForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let question = questionForm.querySelector('.question-text').value;
+      let type = questionForm.querySelector('.question-type:checked').value;
+      let answers = questionForm.querySelectorAll('.answer');
+      console.log('question',question);
+      console.log('type',type);
+      console.log('answers',answers);
     });
   }
 

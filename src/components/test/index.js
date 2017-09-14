@@ -1,8 +1,11 @@
 'use strict';
 
 import _ from 'lodash';
+
+import dom from 'dom';
+import actions from 'actions';
+
 import testTemplate from './test.html';
-import testData from './tests.json';
 
 let counter = 0;
 
@@ -11,7 +14,7 @@ let getTemplate = () => {
 }
 
 let getData = () => {
-  return testData;
+  return actions.getTestQuestions();
 }
 
 let finishTest = () => {
@@ -78,18 +81,7 @@ let showResults = () => {
   output.innerHTML = `You have ${counter} correct answers from ${questionsLength}`;
 }
 
-let findElement = (selector, callback) => {
-  let element = document.querySelector(selector);
-  if(!!element){
-    callback();
-  } else {
-    setTimeout(() => {
-      findElement(selector, callback);
-    },200);
-  }
-}
-
-findElement('.finishtest-btn', () => {
+dom.findElement('.finishtest-btn', () => {
   let finishBtn = document.querySelector('.finishtest-btn');
   finishBtn.addEventListener('click', () => {
     finishTest();

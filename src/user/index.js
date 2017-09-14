@@ -6,7 +6,7 @@ import menu from 'menu';
 import users from './users';
 
 let init = () => {
-  let isUser = localStorage.getItem("user");
+  let isUser = localStorage.getItem('user');
   if(isUser){
     setActiveUser(JSON.parse(isUser));
   }
@@ -14,16 +14,16 @@ let init = () => {
 
 let setActiveUser = (user) => {
   let newUser = JSON.stringify(user);
-  localStorage.setItem("user", newUser);
+  localStorage.setItem('user', newUser);
 };
 
 let removeUser = () => {
-  localStorage.removeItem("user");
+  localStorage.removeItem('user');
   init();
 };
 
 let getUserData = () => { 
-  return JSON.parse(localStorage.getItem("user"));
+  return JSON.parse(localStorage.getItem('user'));
 };
 
 let findUser = (user) => {

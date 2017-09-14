@@ -48,7 +48,9 @@ module.exports = {
       'menu': path.resolve(__dirname, './src/components/menu'),
       'test': path.resolve(__dirname, './src/components/test'),
       'user': path.resolve(__dirname, './src/user'),
-      'usermenu': path.resolve(__dirname, './src/components/usermenu')
+      'usermenu': path.resolve(__dirname, './src/components/usermenu'),
+      'dom': path.resolve(__dirname, './src/dom'),
+      'actions': path.resolve(__dirname, './src/actions')
     }
   }
 };

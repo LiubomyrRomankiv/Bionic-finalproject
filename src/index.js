@@ -15,26 +15,26 @@ userMenu.init();
 actions.loadTestQuestions();
 // actions.clearTestQuestions();
 // actions.removeQuestion('BklCW6RYZ');
-actions.updateQuestion({
-    "id": "HyJxf6CYZ",
-    "question": "updated question 2",
-    "type": "checkbox",
-    "answers": [
-      {
-        "text": "answer 1",
-        "correct": false
-      },
-      {
-        "text": "answer 2",
-        "correct": false
-      },
-      {
-        "text": "answer 3",
-        "correct": true
-      },
-      {
-        "text": "answer 4",
-        "correct": false
-      }
-    ]
-  });
+// actions.updateQuestion({
+//     "id": "HyJxf6CYZ",
+//     "question": "updated question 2",
+//     "type": "checkbox",
+//     "answers": [
+//       {
+//         "text": "answer 1",
+//         "correct": false
+//       },
+//       {
+//         "text": "answer 2",
+//         "correct": false
+//       },
+//       {
+//         "text": "answer 3",
+//         "correct": true
+//       },
+//       {
+//         "text": "answer 4",
+//         "correct": false
+//       }
+//     ]
+//   });

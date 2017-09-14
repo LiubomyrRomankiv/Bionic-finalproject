@@ -1,4 +1,4 @@
-import test from '../components/test/tests.json';
+import test from '../api/tests.json';
 
 let loadTestQuestions = () => {
   let questionsLoaded = getTestQuestions();

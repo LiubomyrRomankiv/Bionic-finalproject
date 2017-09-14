@@ -3,7 +3,7 @@
 import router from 'router';
 import menu from 'menu';
 
-import users from './users';
+import users from '../api/users.json';
 
 let init = () => {
   let isUser = localStorage.getItem('user');

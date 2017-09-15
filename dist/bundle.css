@@ -53,15 +53,16 @@ button {
     outline: none;
     border: 1px none; }
 
-.users-list li p {
-  padding: 5px 20px;
-  border-bottom: 2px solid #4b834e;
-  color: #4b834e; }
-  .users-list li p span {
-    display: inline-block;
-    font-size: 12px;
-    color: #98999b;
-    padding-left: 30px; }
+.output {
+  display: none;
+  font-family: 'Helvetica', 'sans-serif';
+  font-size: 18px;
+  text-align: center;
+  padding: 0 20px; }
+  .output.bad {
+    color: #a00e1f; }
+  .output.show {
+    display: block; }
 
 #login-page {
   width: 90%;
@@ -138,16 +139,6 @@ button {
         -ms-transform: scale(0.8);
         -o-transform: scale(0.8);
         transform: scale(0.8); }
-  #login-page .output {
-    display: none;
-    font-family: 'Helvetica', 'sans-serif';
-    font-size: 18px;
-    text-align: center;
-    padding: 0 20px; }
-    #login-page .output.bad {
-      color: #a00e1f; }
-    #login-page .output.show {
-      display: block; }
 
 ul.menu {
   overflow: hidden; }

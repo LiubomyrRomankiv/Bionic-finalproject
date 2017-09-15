@@ -2,6 +2,7 @@
 
 import _ from 'lodash';
 import handlebars from 'handlebars';
+import shortid from 'shortid';
 
 import actions from 'actions';
 import dom from 'dom';
@@ -60,15 +61,52 @@ class AdminPage extends Page {
   }
 
   questionFormSubmit() {
+    let newQuestion = {};
     let questionForm = document.querySelector('.question-form');
+    let that = this;
     questionForm.addEventListener('submit', function(e) {
       e.preventDefault();
+      
       let question = questionForm.querySelector('.question-text').value;
       let type = questionForm.querySelector('.question-type:checked').value;
-      let answers = questionForm.querySelectorAll('.answer');
-      console.log('question',question);
-      console.log('type',type);
-      console.log('answers',answers);
+      
+      newQuestion.id = shortid.generate();
+      newQuestion.question = question;
+      newQuestion.type = type;
+
+      if(type === 'text') {
+        let correct = questionForm.querySelector('.answer-text').value;
+        newQuestion.correct = correct;
+        if(newQuestion.answers){
+          delete newQuestion.answers;
+        }
+      } else {
+        if(that.checkedAnswersValidation(questionForm)) {
+          newQuestion.answers = that.checkedAnswersValidation(questionForm);
+          if(newQuestion.correct){
+            delete newQuestion.correct;
+          }
+        } else {
+          return false;
+        }
+      }
+      
+      // actions.addNewQuestion(newQuestion);
+    });
+  }
+
+  checkedAnswersValidation(form) {
+    let output = form.querySelector('.output');
+    let answersText = form.querySelectorAll('.answer');
+    let answersCorrect = form.querySelectorAll('.iscorrect');
+    let answersCorrectChecked = form.querySelector('.iscorrect:checked');
+    if(answersCorrect && !answersCorrectChecked) {
+      output.classList.add('show');
+      output.innerHTML = 'At least one answer must be correct!';
+      return false;
+    }
+    return _.map(answersText, (item, i) => {
+      return {text: item.value, correct: answersCorrect[i].checked};
     });
   }
 

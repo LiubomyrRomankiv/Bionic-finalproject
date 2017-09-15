@@ -1,6 +1,6 @@
 <form class="question-form" id="question-form">
   <p>Question:</p>
-  <input type="text" class="question-text" name="question-type" value="" />
+  <input type="text" class="question-text" name="question-type" value="" required/>
   <p>Type:</p>
   <input type="radio" class="question-type" name="question-type" value="radio" id="radio" checked />
   <label for="radio">Single</label>
@@ -10,5 +10,6 @@
   <label for="text">Text</label>
   <p>Answers</p>
   <div class="answers-block"></div>
+  <p class="output bad"></p>
   <button class="btn submit-btn" type="submit">Ok</button>
 </form>

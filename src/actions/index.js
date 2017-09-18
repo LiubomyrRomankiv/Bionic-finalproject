@@ -29,7 +29,6 @@ let removeQuestion = (id) => {
   let questions = getTestQuestions();
   let questionToRemove = _.find(questions, { id });
   _.remove(questions, questionToRemove);
-  console.log(questions);
   setTestQuestions(questions);
 }
 

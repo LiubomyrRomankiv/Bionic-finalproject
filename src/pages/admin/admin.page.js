@@ -28,7 +28,9 @@ class AdminPage extends Page {
   }
 
   whenPageRendered() {
-    this.addNewQuestion()
+    this.addNewQuestion();
+    this.updateQuestionHandle();
+    this.deleteQuestionHandle();
   }
 
   renderQuestionForm() {
@@ -61,52 +63,93 @@ class AdminPage extends Page {
   }
 
   questionFormSubmit(id) {
-    let newQuestion = {};
     let questionForm = document.querySelector('.question-form');
-    let that = this;
-    questionForm.addEventListener('submit', function(e) {
+    questionForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      let question = questionForm.querySelector('.question-text').value;
-      let type = questionForm.querySelector('.question-type:checked').value;
-      
-      newQuestion.question = question;
-      newQuestion.type = type;
-
-      if (type === 'text') {
-        let correct = questionForm.querySelector('.answer-text').value;
-        newQuestion.correct = correct;
-        if(newQuestion.answers){
-          delete newQuestion.answers;
-        }
-      } else {
-        if (that.checkedAnswersValidation(questionForm)) {
-          newQuestion.answers = that.checkedAnswersValidation(questionForm);
-          if (newQuestion.correct) {
-            delete newQuestion.correct;
-          }
-        } else {
-          return false;
-        }
-      }
-
       if (id) {
-        newQuestion.id = id;
-        // actions.updateQuestion(newQuestion);
-        console.log('update');
+        this.formSubmit(questionForm, id);
       } else {
-        newQuestion.id = shortid.generate();
-        // actions.addNewQuestion(newQuestion);
+        this.formSubmit(questionForm);
       }
     });
   }
 
-  updateQuestion(id) {
-    let questionsList = actions.getTestQuestions();
-    if (questionsList) {
-      let modifiedQuestion = _.find(questionsList, { id });
-      console.log(modifiedQuestion);
+  formSubmit(form, id) {
+    let newQuestion = {};
+    let question = form.querySelector('.question-text').value;
+    let type = form.querySelector('.question-type:checked').value;
+    
+    newQuestion.question = question;
+    newQuestion.type = type;
+
+    if (type === 'text') {
+      let correct = form.querySelector('.answer-text').value;
+      newQuestion.correct = correct;
+      if(newQuestion.answers){
+        delete newQuestion.answers;
+      }
+    } else {
+      if (this.checkedAnswersValidation(form)) {
+        newQuestion.answers = this.checkedAnswersValidation(form);
+        if (newQuestion.correct) {
+          delete newQuestion.correct;
+        }
+      } else {
+        return false;
+      }
     }
+
+    if (id) {
+      newQuestion.id = id;
+      actions.updateQuestion(newQuestion);
+    } else {
+      newQuestion.id = shortid.generate();
+      actions.addNewQuestion(newQuestion);
+    }
+  }
+
+  setQuestionData(id) {
+    this.renderQuestionForm();
+    let questionData =  _.find(actions.getTestQuestions(), { id });
+    document.getElementById(questionData.type).checked = true;
+    this.renderAnswers(questionData.type);
+    let questionText = document.querySelector('#question-form .question-text');
+    questionText.value = questionData.question;
+    let answers = document.querySelectorAll('#question-form .answer');
+    let correct = document.querySelectorAll('#question-form .iscorrect');
+    _.map(answers, (answer, i) => {
+      if (questionData) {
+        if (questionData.type === 'text') {
+          answer.value = questionData.correct;
+        } else {
+          answer.value = questionData.answers[i].text;
+          correct[i].checked = questionData.answers[i].correct;
+        }
+      }
+    });
+  }
+
+  updateQuestionHandle() {
+    let updateBtns = document.querySelectorAll('.btn-update');
+    _.each(updateBtns, (item) => {
+      item.addEventListener('click', (e) => {
+        let id = e.target.dataset.question;
+        this.setQuestionData(id);
+        this.questionFormSubmit(id);
+      });
+    });
+  }
+
+  deleteQuestionHandle() {
+    let deleteBtns = document.querySelectorAll('.btn-delete');
+    _.each(deleteBtns, (item) => {
+      item.addEventListener('click', (e) => {
+        let id = e.target.dataset.question;
+        actions.removeQuestion(id);
+        actions.getTestQuestions();
+        this.render();
+      });
+    });
   }
 
   checkedAnswersValidation(form) {

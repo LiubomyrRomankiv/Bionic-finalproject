@@ -34,7 +34,7 @@ class Menu {
   };
 
   drawActiveMenuItemsHash(menu, hash) {
-    let menuItems = menu.querySelectorAll('.menu-item a');
+    let menuItems = menu.querySelectorAll('.menu-item');
     let activeItemHash;
     
     if(!hash){

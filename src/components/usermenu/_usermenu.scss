@@ -1,0 +1,14 @@
+#user-menu{
+  float: right;
+  overflow: hidden;
+  & p{
+    display: inline-block;
+    color: #FFF;
+    padding: 0 20px;
+    margin: 0;
+    line-height: 40px;
+  }
+  .logout{
+    background: rgba(255,255,255,.1); 
+  }
+}

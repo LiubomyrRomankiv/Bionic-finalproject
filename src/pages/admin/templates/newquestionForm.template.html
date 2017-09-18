@@ -1,15 +1,19 @@
-<form class="question-form" id="question-form">
-  <p>Question:</p>
-  <input type="text" class="question-text" name="question-type" value="" required/>
-  <p>Type:</p>
-  <input type="radio" class="question-type" name="question-type" value="radio" id="radio" checked />
-  <label for="radio">Single</label>
-  <input type="radio" class="question-type" name="question-type" value="checkbox" id="checkbox" />
-  <label for="checkbox">Multiple</label>
-  <input type="radio" class="question-type" name="question-type" value="text" id="text" />
-  <label for="text">Text</label>
-  <p>Answers</p>
-  <div class="answers-block"></div>
-  <p class="output bad"></p>
-  <button class="btn submit-btn" type="submit">Ok</button>
-</form>
+<div class="question-form__container">
+  <form class="question-form" id="question-form">
+    <button class="btn close-btn">Close</button>
+    <h3>Question:</h3>
+    <input type="text" class="question-text input" name="question-type" value="" required placeholder="Enter your question here"/>
+    <h3>Type:</h3>
+    <input type="radio" class="question-type" name="question-type" value="radio" id="radio" checked />
+    <label for="radio">Single</label>
+    <input type="radio" class="question-type" name="question-type" value="checkbox" id="checkbox" />
+    <label for="checkbox">Multiple</label>
+    <input type="radio" class="question-type" name="question-type" value="text" id="text" />
+    <label for="text">Text</label>
+    <h3>Answers:</h3>
+    <div class="answers-block"></div>
+    <p class="output bad"></p>
+    <button class="btn submit-btn" type="submit">Ok</button>
+  </form>
+</div>
+

@@ -1,0 +1,29 @@
+#home-page{
+  .newuser-block{
+    width: 90%;
+    max-width: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include box-sizing();
+    border: 2px solid $green;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+    padding: 20px;
+    @include transition(all .5s ease-out);
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+         -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    .newuser-label{
+      display: block;
+      text-align: center;
+      font-size: 18px;
+      padding: 10px;
+    }
+    .newuser-nameinput{
+      margin-bottom: 20px;
+    }
+  }
+}

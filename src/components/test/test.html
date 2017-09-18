@@ -6,11 +6,15 @@
       {{#if answers}}
         <ul class="answers">
           {{#each answers}}
-            <li><input type="{{../type}}" value="{{text}}" name="{{../id}}" id="{{../id}}-ans{{@index}}">{{text}}</li>
+            <li>
+              <label for="{{../id}}-ans{{@index}}" class="hvr-sweep-to-right" >
+                <input type="{{../type}}" value="{{text}}" name="{{../id}}" id="{{../id}}-ans{{@index}}">{{text}}
+              </label>
+            </li>
           {{/each}}
         </ul>
       {{else}}
-        <input type="text" name="{{id}}" id="{{id}}-ans" />
+        <input type="text" name="{{id}}" id="{{id}}-ans" class="input" placeholder="Enter your answer here"/>
       {{/if}}
     {{/each}}
   </ul>

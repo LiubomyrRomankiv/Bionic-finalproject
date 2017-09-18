@@ -1,11 +1,15 @@
 <div id="admin-page">
-  <h1>This is admin page</h1>
+  <h2>Questions:</h2>
   <div class="questions-list">
     {{#each tests}}
-      <div class="question-block question-block{{@index}}">
-        <p class="question-text">{{question}}</p>
-        <button class="btn btn-update" data-question="{{id}}">Update</button>
-        <button class="btn btn-delete" data-question="{{id}}">Delete</button>
+      <div class="question-block question-block{{@index}} hvr-sweep-to-right">
+        <div class="question-block__left">
+          <p class="question-text">{{question}}</p>
+        </div>
+        <div class="question-block__right">
+          <button class="btn btn-update" data-question="{{id}}">Update</button>
+          <button class="btn btn-delete" data-question="{{id}}">Delete</button>
+        </div>
       </div>
     {{/each}}
 

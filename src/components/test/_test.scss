@@ -1,0 +1,14 @@
+.answers {
+  padding-bottom: 20px;
+  & label {
+    display: block;
+    padding: 10px;
+    background: rgba(0,0,0,.05); 
+    border-bottom: 2px solid #fff;
+  }
+  & input{
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+  }
+}

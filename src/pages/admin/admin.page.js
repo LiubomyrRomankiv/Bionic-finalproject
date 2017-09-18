@@ -58,6 +58,7 @@ class AdminPage extends Page {
         this.renderAnswers('radio');
         this.loadAnswers();
         this.questionFormSubmit();
+        this.hideForm();
       });
     });
   }
@@ -71,6 +72,15 @@ class AdminPage extends Page {
       } else {
         this.formSubmit(questionForm);
       }
+      document.querySelector('.question-form_block').innerHTML = '';
+    });
+  }
+
+  hideForm() {
+    let formContainer = document.querySelector('.question-form__container .close-btn');
+    formContainer.addEventListener('click', () => {
+      console.log(document.querySelector('.question-form_block'));
+      document.querySelector('.question-form_block').innerHTML = '';
     });
   }
 
@@ -136,6 +146,7 @@ class AdminPage extends Page {
         let id = e.target.dataset.question;
         this.setQuestionData(id);
         this.questionFormSubmit(id);
+        this.hideForm();
       });
     });
   }

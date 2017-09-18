@@ -1,5 +1,8 @@
+@import './css/hover-min';
+
 $green: #4b834e;
-$light-green: #47a84c;
+$light-green: lighten($green, 20%);
+$dark-green: darken($green, 20%);
 $grey: #98999b;
 $red: #a00e1f;
 
@@ -32,6 +35,10 @@ body{
   font-family:  sans-serif;
   padding: 0;
   margin: 0;
+  padding-top: 40px;
+  font-family: 'Helvetica', 'sans-serif';
+  color: #000; 
+  font-size: 16px;
 }
 
 button{
@@ -42,44 +49,65 @@ button{
   outline-style: none !important;
 }
 
+h2 {
+  color: $green;
+  font-size: 24px;
+  border-bottom: 2px solid;
+  padding: 10px;
+  padding-left: 0;
+}
+
+h3 {
+  color: $green;
+  font-size: 20px;
+}
+
+.hvr-underline-from-center{
+  &:before {
+    background: $green; 
+  }
+}
+
+.hvr-sweep-to-right{
+  &:before {
+    background: $light-green; 
+  }
+}
+
+#page{
+  padding: 20px;
+}
+
+.container{
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;  
+  @include box-sizing();
+}
+
 #header{
   display: block;
+  width: 100%; 
+  position: fixed;
+  left: 0;
+  top: 0;
   background: rgba(0,0,0,.8);
-  padding: 0px 20px;
+  padding: 0px;
   margin: 0;
+  z-index: 20;
 }
 
-.menu-item a{
+.menu-item {
   display: inline-block;
-  padding: 10px;
-  margin: 3px;
+  padding: 10px 20px;
+  margin: 0px;
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 17px;
   color: #FFF;
-  background: $green;
   font-weight: normal;
   text-decoration: none;
-  &:hover,
-  &:active,
   &.active{
-    background: $light-green;
-    font-weight: bold;
-  }
-}
-
-#user-menu{
-  float: right;
-  overflow: hidden;
-  & p{
-    display: inline-block;
-    color: #FFF;
-    padding: 0 20px;
-    margin: 0;
-    line-height: 40px;
-  }
-  & button{
-    outline: none;
-    border: 1px none;
+    background: rgba(255,255,255,.1);
   }
 }
 
@@ -97,6 +125,54 @@ button{
   }
 }
 
+.btn{
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid $green;
+  background: #fff;
+  color: $green;
+  font-size: 16px;
+  text-decoration: none; 
+  @include transition(all .2s ease-out);
+  -webkit-border-radius: 5px; 
+  border-radius: 5px; 
+  -webkit-transform: scale(1);
+     -moz-transform: scale(1);
+      -ms-transform: scale(1);
+       -o-transform: scale(1);
+          transform: scale(1);
+  &:hover,
+  &:active{
+    color: #fff;
+    background: $green;
+  }
+  &:active{
+    -webkit-transform: scale(.8);
+       -moz-transform: scale(.8);
+        -ms-transform: scale(.8);
+         -o-transform: scale(.8);
+            transform: scale(.8);
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  @include box-sizing();
+  border: none;
+  border-bottom: 1px solid $grey;
+  outline: none;
+  &:focus{
+    border-bottom: 1px solid $light-green;
+  }
+}
+
+
+@import './components/menu/menu';
+@import './components/usermenu/usermenu';
+@import './components/test/test';
 
 @import './pages/login/login.page';
-@import './components/menu/menu';
+@import './pages/home/home.page';
+@import './pages/admin/admin.page';

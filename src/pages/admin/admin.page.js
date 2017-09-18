@@ -60,7 +60,7 @@ class AdminPage extends Page {
     });
   }
 
-  questionFormSubmit() {
+  questionFormSubmit(id) {
     let newQuestion = {};
     let questionForm = document.querySelector('.question-form');
     let that = this;
@@ -70,29 +70,43 @@ class AdminPage extends Page {
       let question = questionForm.querySelector('.question-text').value;
       let type = questionForm.querySelector('.question-type:checked').value;
       
-      newQuestion.id = shortid.generate();
       newQuestion.question = question;
       newQuestion.type = type;
 
-      if(type === 'text') {
+      if (type === 'text') {
         let correct = questionForm.querySelector('.answer-text').value;
         newQuestion.correct = correct;
         if(newQuestion.answers){
           delete newQuestion.answers;
         }
       } else {
-        if(that.checkedAnswersValidation(questionForm)) {
+        if (that.checkedAnswersValidation(questionForm)) {
           newQuestion.answers = that.checkedAnswersValidation(questionForm);
-          if(newQuestion.correct){
+          if (newQuestion.correct) {
             delete newQuestion.correct;
           }
         } else {
           return false;
         }
       }
-      
-      // actions.addNewQuestion(newQuestion);
+
+      if (id) {
+        newQuestion.id = id;
+        // actions.updateQuestion(newQuestion);
+        console.log('update');
+      } else {
+        newQuestion.id = shortid.generate();
+        // actions.addNewQuestion(newQuestion);
+      }
     });
+  }
+
+  updateQuestion(id) {
+    let questionsList = actions.getTestQuestions();
+    if (questionsList) {
+      let modifiedQuestion = _.find(questionsList, { id });
+      console.log(modifiedQuestion);
+    }
   }
 
   checkedAnswersValidation(form) {
@@ -100,7 +114,7 @@ class AdminPage extends Page {
     let answersText = form.querySelectorAll('.answer');
     let answersCorrect = form.querySelectorAll('.iscorrect');
     let answersCorrectChecked = form.querySelector('.iscorrect:checked');
-    if(answersCorrect && !answersCorrectChecked) {
+    if (answersCorrect && !answersCorrectChecked) {
       output.classList.add('show');
       output.innerHTML = 'At least one answer must be correct!';
       return false;
@@ -115,13 +129,13 @@ class AdminPage extends Page {
     dom.findElement('.answers-block', (answerType) => {
       let formContainer = document.querySelector('.answers-block');
       let html = '';
-      if( type === 'radio' ){
+      if ( type === 'radio' ){
         html = handlebars.compile(radioAnswer)();
       }
-      if( type === 'checkbox' ){
+      if ( type === 'checkbox' ){
         html = handlebars.compile(checkAnswer)();
       }
-      if( type === 'text' ){
+      if ( type === 'text' ){
         html = handlebars.compile(textAnswer)();
       }
       formContainer.innerHTML = html;

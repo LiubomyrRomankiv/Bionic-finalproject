@@ -73,6 +73,8 @@ class AdminPage extends Page {
         this.formSubmit(questionForm);
       }
       document.querySelector('.question-form_block').innerHTML = '';
+      this.data = { tests: actions.getTestQuestions() };
+      this.render();
     });
   }
 
@@ -156,7 +158,7 @@ class AdminPage extends Page {
       item.addEventListener('click', (e) => {
         let id = e.target.dataset.question;
         actions.removeQuestion(id);
-        actions.getTestQuestions();
+        this.data = { tests: actions.getTestQuestions() };
         this.render();
       });
     });

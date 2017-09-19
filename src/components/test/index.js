@@ -68,7 +68,7 @@ let showSelectedItems = (data, item) => {
 let showTextItems = (data, item) => {
   let activeQuestion = _.find(data, {id: item.getAttribute('name')});
   if(item.value === activeQuestion.correct){
-    item.style.classList.add('good');
+    item.classList.add('good');
     counter++;
   } else {
     item.classList.add('bad');

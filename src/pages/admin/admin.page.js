@@ -79,7 +79,6 @@ class AdminPage extends Page {
   hideForm() {
     let formContainer = document.querySelector('.question-form__container .close-btn');
     formContainer.addEventListener('click', () => {
-      console.log(document.querySelector('.question-form_block'));
       document.querySelector('.question-form_block').innerHTML = '';
     });
   }

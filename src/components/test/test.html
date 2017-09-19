@@ -7,8 +7,9 @@
         <ul class="answers">
           {{#each answers}}
             <li>
-              <label for="{{../id}}-ans{{@index}}" class="hvr-sweep-to-right" >
-                <input type="{{../type}}" value="{{text}}" name="{{../id}}" id="{{../id}}-ans{{@index}}">{{text}}
+              <input type="{{../type}}" value="{{text}}" name="{{../id}}" id="{{../id}}-ans{{@index}}">
+              <label for="{{../id}}-ans{{@index}}" class="hvr-sweep-to-right question-label">
+                {{text}}
               </label>
             </li>
           {{/each}}

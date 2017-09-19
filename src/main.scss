@@ -1,10 +1,13 @@
 @import './css/hover-min';
 
+$grey: #98999b;
 $green: #4b834e;
 $light-green: lighten($green, 20%);
+$ultralight-green: lighten($green, 40%);
 $dark-green: darken($green, 20%);
-$grey: #98999b;
 $red: #a00e1f;
+$light-red: lighten($red, 20%);
+$ultralight-red: lighten($red, 40%);
 
 @mixin transition($args...) {
   -webkit-transition: $args;

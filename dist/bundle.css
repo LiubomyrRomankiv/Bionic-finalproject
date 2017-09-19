@@ -3987,17 +3987,54 @@ ul.menu {
   #user-menu .logout {
     background: rgba(255, 255, 255, 0.1); }
 
-.answers {
+#test .answers {
   padding-bottom: 20px; }
-  .answers label {
+  #test .answers li {
+    position: relative; }
+    #test .answers li.good label.question-label {
+      background: #bfdbc1;
+      color: #4b834e; }
+    #test .answers li.bad label.question-label {
+      background: #f48693;
+      color: #a00e1f; }
+  #test .answers label {
     display: block;
-    padding: 10px;
+    padding: 12px;
     background: rgba(0, 0, 0, 0.05);
-    border-bottom: 2px solid #fff; }
-  .answers input {
+    border-bottom: 2px solid #fff;
+    padding-left: 40px; }
+  #test .answers input {
+    position: absolute;
     width: 20px;
     height: 20px;
-    margin-right: 20px; }
+    z-index: 10;
+    left: 5px;
+    top: 50%;
+    margin-top: -10px; }
+  #test .answers input:checked + label {
+    background: #bfdbc1;
+    color: #4b834e; }
+
+#test .input.bad {
+  background: #f48693;
+  color: #a00e1f; }
+
+#test .input.good {
+  background: #bfdbc1;
+  color: #4b834e; }
+
+#test .output {
+  position: fixed;
+  border: 2px solid;
+  padding: 20px;
+  left: 50%;
+  top: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
 
 #login-page {
   width: 90%;

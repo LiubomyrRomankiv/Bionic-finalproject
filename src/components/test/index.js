@@ -40,7 +40,7 @@ let showSelectedItems = (data, item) => {
   let hasFalse = false;
   
   if(answerStatus.correct){
-    item.parentNode.style.border = '1px solid green';
+    item.parentNode.classList.add('good');
     if( activeQuestion.type === 'radio' ){
       counter++;
     } else {
@@ -60,25 +60,26 @@ let showSelectedItems = (data, item) => {
     let correctAnswer = _.find(activeQuestion.answers, {correct: true});
     let allAnswerItems = document.querySelectorAll(allItemsSelector);
     let correctItem = _.find(allAnswerItems, {value: correctAnswer.text});
-    correctItem.parentNode.style.border = '1px solid green';
-    item.parentNode.style.border = '1px solid red';
+    correctItem.parentNode.classList.add('good');
+    item.parentNode.classList.add('bad');
   }
 }
 
 let showTextItems = (data, item) => {
   let activeQuestion = _.find(data, {id: item.getAttribute('name')});
   if(item.value === activeQuestion.correct){
-    item.style.border = '1px solid green';
+    item.style.classList.add('good');
     counter++;
   } else {
-    item.style.border = '1px solid red';
+    item.classList.add('bad');
   }
 }
 
 let showResults = () => {
-  let output = document.querySelector('.output');
+  let output = document.querySelector('#test .output');
   let questionsLength = document.querySelectorAll('.question').length;
-  output.innerHTML = `You have ${counter} correct answers from ${questionsLength}`;
+  output.innerHTML = `You have <b>${counter}</b> correct answers from <b>${questionsLength}</b>`;
+  output.classList.add('show');
 }
 
 dom.findElement('.finishtest-btn', () => {

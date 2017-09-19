@@ -1,14 +1,59 @@
-.answers {
-  padding-bottom: 20px;
-  & label {
-    display: block;
-    padding: 10px;
-    background: rgba(0,0,0,.05); 
-    border-bottom: 2px solid #fff;
+#test {
+  .answers {
+    padding-bottom: 20px;
+    & li {
+      position: relative;
+      &.good label.question-label {
+        background: $ultralight-green;
+        color: $green;
+      }
+      &.bad label.question-label {
+        background: $ultralight-red;
+        color: $red;
+      }
+    }
+    & label {
+      display: block;
+      padding: 12px;
+      background: rgba(0,0,0,.05); 
+      border-bottom: 2px solid #fff;
+      padding-left: 40px;
+    }
+    & input {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      z-index: 10;
+      left: 5px;
+      top: 50%;
+      margin-top: -10px;
+    }
+    & input:checked + label {
+      background: $ultralight-green;
+      color: $green; 
+    }
   }
-  & input{
-    width: 20px;
-    height: 20px;
-    margin-right: 20px;
+  .input {
+    &.bad {
+      background: $ultralight-red;
+      color: $red; 
+    }
+    &.good {
+      background: $ultralight-green;
+      color: $green; 
+    }
+  }
+  .output {
+    position: fixed;
+    border: 2px solid;
+    padding: 20px;
+    left: 50%;
+    top: 50%;
+    background: rgba(255,255,255,.7); 
+    -webkit-transform: translate(-50%, -50%); 
+    -moz-transform: translate(-50%, -50%); 
+    -ms-transform: translate(-50%, -50%); 
+    -o-transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%); 
   }
 }

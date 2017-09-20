@@ -1,7 +1,6 @@
 'use strict';
 
 import _ from 'lodash';
-import moment from 'moment';
 
 import dom from 'dom';
 import actions from 'actions';

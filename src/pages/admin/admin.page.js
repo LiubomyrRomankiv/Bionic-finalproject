@@ -32,6 +32,7 @@ class AdminPage extends Page {
     this.addNewQuestion();
     this.updateQuestionHandle();
     this.deleteQuestionHandle();
+    this.showHideStatistics();
   }
 
   renderQuestionForm() {
@@ -48,6 +49,20 @@ class AdminPage extends Page {
           this.renderAnswers(e.target.value);
         });
       });
+    });
+  }
+
+  showHideStatistics() {
+    let informationBlock = document.querySelector('.information');
+    let showStatisticsBtn = document.querySelector('.show-statistics');
+    let showQuestionsBtn = document.querySelector('.show-questions');
+
+    showStatisticsBtn.addEventListener('click', () => {
+      informationBlock.classList.add('show-statistics');
+    });
+
+    showQuestionsBtn.addEventListener('click', () => {
+      informationBlock.classList.remove('show-statistics');
     });
   }
 

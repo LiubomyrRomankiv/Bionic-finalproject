@@ -1,39 +1,46 @@
 <div id="admin-page">
-  <h2>Questions:</h2>
-  <div class="questions-list">
-    {{#each tests}}
-      <div class="question-block question-block{{@index}} hvr-sweep-to-right">
-        <div class="question-block__left">
-          <p class="question-text">{{question}}</p>
+  <div class="information">
+    <div class="questions-list">
+      <button class="btn show-statistics btn-right">Statistics</button>
+      <h2>Questions:</h2>
+      {{#each tests}}
+        <div class="question-block question-block{{@index}} hvr-sweep-to-right">
+          <div class="question-block__left">
+            <p class="question-text">{{question}}</p>
+          </div>
+          <div class="question-block__right">
+            <button class="btn btn-update" data-question="{{id}}">Update</button>
+            <button class="btn btn-delete" data-question="{{id}}">Delete</button>
+          </div>
         </div>
-        <div class="question-block__right">
-          <button class="btn btn-update" data-question="{{id}}">Update</button>
-          <button class="btn btn-delete" data-question="{{id}}">Delete</button>
-        </div>
-      </div>
-    {{/each}}
-
-    <table class="statistics-table">
-      <tr class="title-row row">
-        <td class="col col1">#</td>
-        <td class="col col2">User name</td>
-        <td class="col col3">Correct answers</td>
-        <td class="col col4">All questions</td>
-        <td class="col col5">Date</td>
-      </tr>
-      {{#each statistics}}
-        <tr class="row">
-          <td class="col col1">{{inc @index}}</td>
-          <td class="col col2">{{name}}</td>
-          <td class="col col3">{{correctAnswers}}</td>
-          <td class="col col4">{{allAnswers}}</td>
-          <td class="col col5">{{momentdate date}}</td>
-        </tr>
       {{/each}}
-    </table>
 
-    <button id="newquestion-btn" class="btn newquestion-btn">+</button>
-
-    <div id="question-form_block" class="question-form_block"></div>
+      <button id="newquestion-btn" class="btn newquestion-btn">+</button>
+      <div id="question-form_block" class="question-form_block"></div>
+    </div>
+    <div class="statistics-block">
+      <button class="btn show-questions btn-right">Questions</button>
+      <h2>Statistics:</h2>
+      <table class="statistics-table" cellpadding="0" cellspacing="0">
+        <tr class="title-row row">
+          <td class="col col1">#</td>
+          <td class="col col2">User name</td>
+          <td class="col col3">Correct answers</td>
+          <td class="col col4">All questions</td>
+          <td class="col col5">Date</td>
+        </tr>
+        {{#each statistics}}
+          <tr class="row">
+            <td class="col col1">{{inc @index}}</td>
+            <td class="col col2">{{name}}</td>
+            <td class="col col3">{{correctAnswers}}</td>
+            <td class="col col4">{{allAnswers}}</td>
+            <td class="col col5">{{momentdate date}}</td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
   </div>
+  
+  
 </div>

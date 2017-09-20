@@ -4108,6 +4108,16 @@ ul.menu {
 #admin-page {
   padding-bottom: 50px;
   padding-right: 50px; }
+  #admin-page .information .btn-right {
+    float: right; }
+  #admin-page .information .questions-list {
+    display: block; }
+  #admin-page .information .statistics-block {
+    display: none; }
+  #admin-page .information.show-statistics .questions-list {
+    display: none; }
+  #admin-page .information.show-statistics .statistics-block {
+    display: block; }
   #admin-page .question-block {
     display: flex;
     display: -webkit-flex;
@@ -4190,5 +4200,19 @@ ul.menu {
     #admin-page .answer-container .iscorrect {
       width: 20px;
       height: 20px; }
+  #admin-page .statistics-table {
+    width: 100%; }
+    #admin-page .statistics-table .col {
+      font-size: 18px;
+      padding: 20px;
+      border-bottom: 1px solid #7fb581;
+      text-align: center; }
+    #admin-page .statistics-table .row:nth-child(odd) .col {
+      background: #e0ede1; }
+    #admin-page .statistics-table .row.title-row .col {
+      background: #7fb581;
+      color: #fff;
+      border-top: 1px solid #4b834e;
+      border-bottom: 1px solid #4b834e; }
 
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJidW5kbGUuY3NzIiwic291cmNlUm9vdCI6IiJ9*/

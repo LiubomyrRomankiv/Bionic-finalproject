@@ -9,6 +9,7 @@ import testTemplate from './test.html';
 
 let counter = 0;
 let name = '';
+let currId = '';
 
 let getTemplate = () => {
   return testTemplate;
@@ -70,16 +71,20 @@ let showSelectedItems = (data, item) => {
       counter++;
     } else {
       let checks = document.querySelectorAll(`${allItemsSelector}:checked`);
-      _.each(checks, (item) => {
-        let ans = _.find(activeQuestion.answers, {text: item.value});
-        if( !ans.correct ){
-          hasFalse = true;
-        }
-      });
+      if(currId !== activeQuestion.id) {
+        _.each(checks, (item) => {
+          let ans = _.find(activeQuestion.answers, {text: item.value});
+          if( !ans.correct ){
+            hasFalse = true;
+          }
+        });
 
-      if( !hasFalse ){
-        counter++;
+        if( !hasFalse ){
+          counter++;
+        }
+        currId = activeQuestion.id;
       }
+      console.log(currId);
     }
   } else {
     let correctAnswer = _.find(activeQuestion.answers, {correct: true});

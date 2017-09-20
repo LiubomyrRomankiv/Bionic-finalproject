@@ -3987,6 +3987,9 @@ ul.menu {
   #user-menu .logout {
     background: rgba(255, 255, 255, 0.1); }
 
+#test .test-list {
+  padding-bottom: 20px; }
+
 #test .answers {
   padding-bottom: 20px; }
   #test .answers li {

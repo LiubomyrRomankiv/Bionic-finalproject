@@ -13,6 +13,25 @@
       </div>
     {{/each}}
 
+    <table class="statistics-table">
+      <tr class="title-row row">
+        <td class="col col1">#</td>
+        <td class="col col2">User name</td>
+        <td class="col col3">Correct answers</td>
+        <td class="col col4">All questions</td>
+        <td class="col col5">Date</td>
+      </tr>
+      {{#each statistics}}
+        <tr class="row">
+          <td class="col col1">{{inc @index}}</td>
+          <td class="col col2">{{name}}</td>
+          <td class="col col3">{{correctAnswers}}</td>
+          <td class="col col4">{{allAnswers}}</td>
+          <td class="col col5">{{momentdate date}}</td>
+        </tr>
+      {{/each}}
+    </table>
+
     <button id="newquestion-btn" class="btn newquestion-btn">+</button>
 
     <div id="question-form_block" class="question-form_block"></div>

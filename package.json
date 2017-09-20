@@ -29,6 +29,7 @@
   "dependencies": {
     "handlebars": "^4.0.10",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "shortid": "^2.2.8",
     "webpack-dev-server": "^2.6.1"
   }

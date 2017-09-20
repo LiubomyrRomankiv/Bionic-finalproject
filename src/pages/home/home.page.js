@@ -72,6 +72,7 @@ class HomePage extends Page {
         }
       });
     }
+    test.setName(this.data.name);
   }
 }
 

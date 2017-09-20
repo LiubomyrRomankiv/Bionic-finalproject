@@ -3,6 +3,7 @@
 import _ from 'lodash';
 import handlebars from 'handlebars';
 import shortid from 'shortid';
+import moment from 'moment';
 
 import actions from 'actions';
 import dom from 'dom';
@@ -19,7 +20,7 @@ class AdminPage extends Page {
   constructor(url){
     super(url);
     this.content = adminPageContent;
-    this.data = { tests: actions.getTestQuestions() };
+    this.data = { tests: actions.getTestQuestions(), statistics: actions.getStatistics };
     this.userStatus = {
       guest: false,
       user: false,
@@ -197,6 +198,14 @@ class AdminPage extends Page {
     });
   }
 }
+
+handlebars.registerHelper('inc', (i) => {
+  return ++i;
+});
+
+handlebars.registerHelper('momentdate', (date) => {
+  return moment(date).fromNow();
+});
 
 let adminPage = new AdminPage('#/admin');
 

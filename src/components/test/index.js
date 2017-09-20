@@ -1,6 +1,7 @@
 'use strict';
 
 import _ from 'lodash';
+import moment from 'moment';
 
 import dom from 'dom';
 import actions from 'actions';
@@ -8,6 +9,7 @@ import actions from 'actions';
 import testTemplate from './test.html';
 
 let counter = 0;
+let name = '';
 
 let getTemplate = () => {
   return testTemplate;
@@ -31,6 +33,30 @@ let finishTest = () => {
   });
 
   showResults();
+  setStatistics();
+}
+
+let init = () => {
+  let isUser = localStorage.getItem('user');
+  if(isUser){
+    setActiveUser(JSON.parse(isUser));
+  }
+};
+
+let setActiveUser = (user) => {
+  let newUser = JSON.stringify(user);
+  localStorage.setItem('user', newUser);
+};
+
+let setStatistics = () => {
+  let data = {
+    name: name,
+    correctAnswers: counter,
+    allAnswers: document.querySelectorAll('.question').length,
+    date: new Date()
+  };
+
+  actions.setStatistics(data);
 }
 
 let showSelectedItems = (data, item) => {
@@ -82,6 +108,10 @@ let showResults = () => {
   output.classList.add('show');
 }
 
+let setName = (newName) => {
+  name = newName;
+}
+
 dom.findElement('.finishtest-btn', () => {
   let finishBtn = document.querySelector('.finishtest-btn');
   finishBtn.addEventListener('click', () => {
@@ -91,5 +121,6 @@ dom.findElement('.finishtest-btn', () => {
 
 export default {
   getTemplate,
-  getData
+  getData,
+  setName
 };

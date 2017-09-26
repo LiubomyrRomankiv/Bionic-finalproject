@@ -84,7 +84,6 @@ let showSelectedItems = (data, item) => {
         }
         currId = activeQuestion.id;
       }
-      console.log(currId);
     }
   } else {
     let correctAnswer = _.find(activeQuestion.answers, {correct: true});
@@ -116,10 +115,48 @@ let setName = (newName) => {
   name = newName;
 }
 
+let allQuestionsAnswered = () => {
+  let error = false;
+  let questions = document.querySelectorAll('.question-block');
+  _.each(questions, (question) => {
+    let id = question.getAttribute('id');
+    let checkedAnswers = question.querySelectorAll('.check-ans');
+    let textAnswer = question.querySelector('.text-input');
+    if(checkedAnswers.length > 0) {
+      let checked = question.querySelectorAll('.check-ans:checked');
+      if(checked.length === 0) {
+        document.getElementById(id).classList.add('error');
+        error = true;
+      }
+    }
+    if(textAnswer && textAnswer.value === '') {
+      document.getElementById(id).classList.add('error');
+      error = true;
+    }
+  });
+
+  return error;
+}
+
+let hideError = () => {
+  let questions = document.querySelectorAll('.question-block');
+  _.each(questions, (question) => {
+    let id = question.getAttribute('id');
+    question.addEventListener('click', () => {
+      document.getElementById(id).classList.remove('error');
+    });
+  });
+}
+
 dom.findElement('.finishtest-btn', () => {
   let finishBtn = document.querySelector('.finishtest-btn');
   finishBtn.addEventListener('click', () => {
-    finishTest();
+    let error = allQuestionsAnswered();
+    if (!error) {
+      finishTest();
+    } else {
+      hideError();
+    }
   });
 });
 

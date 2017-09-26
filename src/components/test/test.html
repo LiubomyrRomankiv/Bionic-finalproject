@@ -2,21 +2,23 @@
   <h2>Hello, {{name}}. Let's start!</h2>
   <ul class="test-list">
     {{#each questions}}
-      <h3 class="question" id="{{id}}">{{question}}</h3>
-      {{#if answers}}
-        <ul class="answers">
-          {{#each answers}}
-            <li>
-              <input type="{{../type}}" value="{{text}}" name="{{../id}}" id="{{../id}}-ans{{@index}}">
-              <label for="{{../id}}-ans{{@index}}" class="hvr-sweep-to-right question-label">
-                {{text}}
-              </label>
-            </li>
-          {{/each}}
-        </ul>
-      {{else}}
-        <input type="text" name="{{id}}" id="{{id}}-ans" class="input" placeholder="Enter your answer here"/>
-      {{/if}}
+      <div class="question-block" id="qblock-{{id}}">
+        <h3 class="question" id="{{id}}">{{question}}</h3>
+        {{#if answers}}
+          <ul class="answers">
+            {{#each answers}}
+              <li>
+                <input type="{{../type}}" value="{{text}}" name="{{../id}}" id="{{../id}}-ans{{@index}}" class="check-ans">
+                <label for="{{../id}}-ans{{@index}}" class="hvr-sweep-to-right question-label">
+                  {{text}}
+                </label>
+              </li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <input type="text" name="{{id}}" id="{{id}}-ans" class="input text-input" placeholder="Enter your answer here"/>
+        {{/if}}
+      </div>
     {{/each}}
   </ul>
   <button class="btn finishtest-btn">Finish test</button>

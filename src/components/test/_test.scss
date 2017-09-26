@@ -2,6 +2,18 @@
   .test-list {
     padding-bottom: 20px;
   }
+  .question-block {
+    padding: 10px;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box; 
+    &.error {
+      border: 1px solid $ultralight-red;
+      .question {
+        color: $red;
+      }
+    }
+  }
   .answers {
     padding-bottom: 20px;
     & li {

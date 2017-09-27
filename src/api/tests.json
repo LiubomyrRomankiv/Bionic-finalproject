@@ -1,99 +1,197 @@
 [
   {
     "id": "BklCW6RYZ",
-    "question": "question 1",
+    "question": "Which built-in method returns the string representation of the number's value?",
     "type": "radio",
     "answers": [
       {
-        "text": "answer 1",
+        "text": "toValue()",
         "correct": false
       },
       {
-        "text": "answer 2",
+        "text": "toNumber()",
         "correct": false
       },
       {
-        "text": "answer 3",
+        "text": "toString()",
         "correct": true
       },
       {
-        "text": "answer 4",
+        "text": "None of the above.",
         "correct": false
       }
     ]
   },
   {
     "id": "HyJxf6CYZ",
-    "question": "question 2",
+    "question": "Which of the following function of String object is used to find a match between a regular expression and a string, and to replace the matched substring with a new substring?",
+    "type": "radio",
+    "answers": [
+      {
+        "text": "concat()",
+        "correct": false
+      },
+      {
+        "text": "match()",
+        "correct": false
+      },
+      {
+        "text": "search()",
+        "correct": false
+      },
+      {
+        "text": "replace()",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "HyFbMaCtb",
+    "question": "<b>var num=20;</b> <br>Above Statement is called as __________ Statement. Select all the appropriate options.",
     "type": "checkbox",
     "answers": [
       {
-        "text": "answer 1",
-        "correct": false
-      },
-      {
-        "text": "answer 2",
-        "correct": false
-      },
-      {
-        "text": "answer 3",
+        "text": "Declaration",
         "correct": true
       },
       {
-        "text": "answer 4",
+        "text": "Initialization",
+        "correct": true
+      },
+      {
+        "text": "Globalization",
+        "correct": false
+      },
+      {
+        "text": "Instatiation",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "HkxWz6CFb",
+    "question": "Variable name contain following type of characters:",
+    "type": "checkbox",
+    "answers": [
+      {
+        "text": "Alphabet",
+        "correct": true
+      },
+      {
+        "text": "Digits",
+        "correct": true
+      },
+      {
+        "text": "Underscore",
+        "correct": true
+      },
+      {
+        "text": "Special Chracters",
         "correct": false
       }
     ]
   },
   {
     "id": "BJPxMpAFb",
-    "question": "question 3",
+    "question": "What value is returned from the following statement? <br><b>'orp erp sj cinoib'.split('').reverse().join('');</b>",
     "type": "text",
-    "correct": "єєєєєєєєєє"
+    "correct": "bionic js pre pro"
   },
   {
-    "id": "HkxWz6CFb",
-    "question": "question 4",
+    "id": "SksInZYib",
+    "question": "State the correct place of JS Code inside HTML",
+    "type": "checkbox",
+    "answers": [
+      {
+        "text": "Inside Body",
+        "correct": false
+      },
+      {
+        "text": "Inside Head",
+        "correct": false
+      },
+      {
+        "text": "Inside Single JavaScript File",
+        "correct": false
+      },
+      {
+        "text": "All of these",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "rJeiUnbYoW",
+    "question": "What is the value of window.foo? <br><b>( window.foo || ( window.foo = 'bar' ) );</b>",
+    "type": "text",
+    "correct": "bar"
+  },
+  {
+    "id": "H1boUhbtsZ",
+    "question": "Which built-in method returns the length of the string?",
     "type": "radio",
     "answers": [
       {
-        "text": "answer 1",
-        "correct": false
-      },
-      {
-        "text": "answer 2",
-        "correct": false
-      },
-      {
-        "text": "answer 3",
+        "text": "length()",
         "correct": true
       },
       {
-        "text": "answer 4",
+        "text": "size()",
+        "correct": false
+      },
+      {
+        "text": "index()",
+        "correct": false
+      },
+      {
+        "text": "None of the above.",
         "correct": false
       }
     ]
   },
   {
-    "id": "HyFbMaCtb",
-    "question": "question 5",
-    "type": "checkbox",
+    "id": "SJGoLh-Fs-",
+    "question": "Which of the following function of Boolean object returns the primitive value of the Boolean object?",
+    "type": "radio",
     "answers": [
       {
-        "text": "answer 1",
+        "text": "toSource()",
         "correct": false
       },
       {
-        "text": "answer 2",
-        "correct": false
-      },
-      {
-        "text": "answer 3",
+        "text": "valueOf()",
         "correct": true
       },
       {
-        "text": "answer 4",
+        "text": "toString()",
         "correct": false
+      },
+      {
+        "text": "None of the above.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "SkXiU2btoW",
+    "question": "JavaScript is also called as:",
+    "type": "checkbox",
+    "answers": [
+      {
+        "text": "None of These",
+        "correct": false
+      },
+      {
+        "text": "Server Side Scripting Language",
+        "correct": false
+      },
+      {
+        "text": "Client Side Scripting Language",
+        "correct": true
+      },
+      {
+        "text": "Browser Side Scripting Language",
+        "correct": true
       }
     ]
   }

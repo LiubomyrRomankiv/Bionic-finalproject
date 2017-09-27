@@ -3,14 +3,14 @@
   <ul class="test-list">
     {{#each questions}}
       <div class="question-block" id="qblock-{{id}}">
-        <h3 class="question" id="{{id}}">{{question}}</h3>
+        <h3 class="question" id="{{id}}">{{{question}}}</h3>
         {{#if answers}}
           <ul class="answers">
             {{#each answers}}
               <li>
                 <input type="{{../type}}" value="{{text}}" name="{{../id}}" id="{{../id}}-ans{{@index}}" class="check-ans">
                 <label for="{{../id}}-ans{{@index}}" class="hvr-sweep-to-right question-label">
-                  {{text}}
+                  {{{text}}}
                 </label>
               </li>
             {{/each}}

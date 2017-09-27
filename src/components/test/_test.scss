@@ -7,6 +7,12 @@
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box; 
     box-sizing: border-box; 
+    .question {
+      & b {
+        font-size: 22px;
+        color: $grey;
+      }
+    }
     &.error {
       border: 1px solid $ultralight-red;
       .question {

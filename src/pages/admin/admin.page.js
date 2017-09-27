@@ -33,11 +33,6 @@ class AdminPage extends Page {
     this.updateQuestionHandle();
     this.deleteQuestionHandle();
     this.showHideStatistics();
-    console.log(shortid.generate());
-    console.log(shortid.generate());
-    console.log(shortid.generate());
-    console.log(shortid.generate());
-    console.log(shortid.generate());
   }
 
   renderQuestionForm() {

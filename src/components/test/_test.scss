@@ -8,9 +8,11 @@
     -moz-box-sizing: border-box; 
     box-sizing: border-box; 
     .question {
+      padding: 20px 0;
       & b {
         font-size: 22px;
         color: $grey;
+        font-weight: normal;
       }
     }
     &.error {

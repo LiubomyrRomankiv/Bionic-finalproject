@@ -24,14 +24,19 @@ $ultralight-red: lighten($red, 40%);
           box-sizing: border-box;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 ul, menu, dir {
-    display: block;
-    list-style-type: none;
-    -webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 0px;
+  display: block;
+  list-style-type: none;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
 }
 
 body{

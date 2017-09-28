@@ -20,7 +20,7 @@ class AdminPage extends Page {
   constructor(url){
     super(url);
     this.content = adminPageContent;
-    this.data = { tests: actions.getTestQuestions(), statistics: actions.getStatistics };
+    this.data = { tests: actions.getTestQuestions, statistics: actions.getStatistics };
     this.userStatus = {
       guest: false,
       user: false,

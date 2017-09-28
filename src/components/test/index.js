@@ -9,13 +9,27 @@ import testTemplate from './test.html';
 
 let counter = 0;
 let name = '';
+let runned = false;
 
 let getTemplate = () => {
+  submitHandler();
   return testTemplate;
 }
 
 let getData = () => {
   return actions.getTestQuestions();
+}
+
+let setTestStatistics = () => {
+  runned = true;
+  let data = {
+    name: name,
+    correctAnswers: counter,
+    allAnswers: document.querySelectorAll('.question').length,
+    date: new Date()
+  };
+
+  actions.setStatistics(data);
 }
 
 let finishTest = () => {
@@ -34,8 +48,11 @@ let finishTest = () => {
   });
 
   showResults();
-  setTestStatistics();
-
+  if( !runned ) {
+    setTestStatistics();
+    runned = false;
+  }
+  
   counter = 0;
 }
 
@@ -50,17 +67,6 @@ let setActiveUser = (user) => {
   let newUser = JSON.stringify(user);
   localStorage.setItem('user', newUser);
 };
-
-let setTestStatistics = () => {
-  let data = {
-    name: name,
-    correctAnswers: counter,
-    allAnswers: document.querySelectorAll('.question').length,
-    date: new Date()
-  };
-
-  actions.setStatistics(data);
-}
 
 let showSelectedItems = (data, item) => {
   let activeQuestion = _.find(data, {id: item.getAttribute('id')});
@@ -159,6 +165,5 @@ let submitHandler = () => {
 export default {
   getTemplate,
   getData,
-  setName,
-  submitHandler
+  setName
 };

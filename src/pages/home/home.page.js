@@ -7,7 +7,6 @@ import user from 'user';
 
 import Page from '../page';
 import homePageContent from './home.page.html';
-// import shortid from 'shortid';
 
 class HomePage extends Page {
   constructor(url){
@@ -43,7 +42,6 @@ class HomePage extends Page {
 
   whenPageRendered() {
     this.goTest();
-    test.submitHandler();
   }
 
   setTestContent(userName) {

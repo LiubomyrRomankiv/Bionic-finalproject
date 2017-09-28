@@ -9,7 +9,6 @@ import testTemplate from './test.html';
 
 let counter = 0;
 let name = '';
-let currId = '';
 
 let getTemplate = () => {
   return testTemplate;
@@ -21,19 +20,23 @@ let getData = () => {
 
 let finishTest = () => {
   let data = getData();
-  let checkQuestions = document.querySelectorAll('#test input:checked');
-  let textQuestions = document.querySelectorAll('#test input[type="text"]');
-  
-  _.each(checkQuestions, (item) => {
-    showSelectedItems(data, item);
-  });
+  let questionBlocks = document.querySelectorAll('.question-block');
 
-  _.each(textQuestions, (item) => {
-    showTextItems(data, item);
+  _.each(questionBlocks, (item) => {
+    let _id = item.getAttribute('id');
+    let text = item.classList.contains('text');
+    if( text ) {
+      let textQuestion = document.querySelector(`#${_id} input[type="text"]`);
+      showTextItems(data, textQuestion);
+    } else {
+      showSelectedItems(data, item);
+    }
   });
 
   showResults();
-  setStatistics();
+  setTestStatistics();
+
+  counter = 0;
 }
 
 let init = () => {
@@ -48,7 +51,7 @@ let setActiveUser = (user) => {
   localStorage.setItem('user', newUser);
 };
 
-let setStatistics = () => {
+let setTestStatistics = () => {
   let data = {
     name: name,
     correctAnswers: counter,
@@ -60,37 +63,26 @@ let setStatistics = () => {
 }
 
 let showSelectedItems = (data, item) => {
-  let activeQuestion = _.find(data, {id: item.getAttribute('name')});
-  let answerStatus = _.find(activeQuestion.answers, {text: item.value});
-  let allItemsSelector =  `#test #${activeQuestion.id} + ul input`;
-  let hasFalse = false;
-  
-  if(answerStatus.correct){
-    item.parentNode.classList.add('good');
-    if( activeQuestion.type === 'radio' ){
-      counter++;
-    } else {
-      let checks = document.querySelectorAll(`${allItemsSelector}:checked`);
-      if(currId !== activeQuestion.id) {
-        _.each(checks, (item) => {
-          let ans = _.find(activeQuestion.answers, {text: item.value});
-          if( !ans.correct ){
-            hasFalse = true;
-          }
-        });
+  let activeQuestion = _.find(data, {id: item.getAttribute('id')});
+  let allAnswerItems = document.querySelectorAll(`#${activeQuestion.id} input`);
+  let correct = true;
 
-        if( !hasFalse ){
-          counter++;
-        }
-        currId = activeQuestion.id;
-      }
+  _.each(allAnswerItems, (item) => {   
+    let currentAnswer = _.find(activeQuestion.answers, {text: item.value});
+    if( currentAnswer.correct ) {
+      item.parentNode.classList.add('good');
+    } 
+    if( item.checked && !currentAnswer.correct ) {
+      item.parentNode.classList.add('bad');
+      correct = false;
     }
-  } else {
-    let correctAnswer = _.find(activeQuestion.answers, {correct: true});
-    let allAnswerItems = document.querySelectorAll(allItemsSelector);
-    let correctItem = _.find(allAnswerItems, {value: correctAnswer.text});
-    correctItem.parentNode.classList.add('good');
-    item.parentNode.classList.add('bad');
+    if( !item.checked && currentAnswer.correct ) {
+      correct = false;
+    }
+  });
+
+  if( correct ) {
+    counter++;
   }
 }
 
@@ -151,10 +143,11 @@ let hideError = () => {
 let submitHandler = () => {
   dom.findElement('.finishtest-btn', () => {
     let finishBtn = document.querySelector('.finishtest-btn');
-    finishBtn.addEventListener('click', () => {
+    finishBtn.addEventListener('click', (e) => {
       let error = allQuestionsAnswered();
       if (!error) {
         finishTest();
+        e.target.disabled = true;
       } else {
         hideError();
       }

@@ -157,6 +157,11 @@ h3 {
          -o-transform: scale(.8);
             transform: scale(.8);
   }
+  &:disabled {
+    border: 2px solid $grey;
+    background: #fff;
+    color: $grey;
+  }
 }
 
 .input {

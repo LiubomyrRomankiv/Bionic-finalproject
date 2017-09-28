@@ -2,8 +2,8 @@
   <h2>Hello, {{name}}. Let's start!</h2>
   <ul class="test-list">
     {{#each questions}}
-      <div class="question-block" id="qblock-{{id}}">
-        <h3 class="question" id="{{id}}">{{{question}}}</h3>
+      <div class="question-block {{type}}" id="{{id}}">
+        <h3 class="question" id="q{{id}}">{{{question}}}</h3>
         {{#if answers}}
           <ul class="answers">
             {{#each answers}}

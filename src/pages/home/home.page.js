@@ -43,13 +43,13 @@ class HomePage extends Page {
 
   whenPageRendered() {
     this.goTest();
+    test.submitHandler();
   }
 
   setTestContent(userName) {
     this.content = test.getTemplate();
     let questions = test.getData();
     this.data = { questions, name: userName };
-    test.submitHandler();
   }
 
   setDefaultContent() {

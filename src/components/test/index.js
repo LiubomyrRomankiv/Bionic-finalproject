@@ -148,20 +148,24 @@ let hideError = () => {
   });
 }
 
-dom.findElement('.finishtest-btn', () => {
-  let finishBtn = document.querySelector('.finishtest-btn');
-  finishBtn.addEventListener('click', () => {
-    let error = allQuestionsAnswered();
-    if (!error) {
-      finishTest();
-    } else {
-      hideError();
-    }
+let submitHandler = () => {
+  dom.findElement('.finishtest-btn', () => {
+    let finishBtn = document.querySelector('.finishtest-btn');
+    finishBtn.addEventListener('click', () => {
+      let error = allQuestionsAnswered();
+      if (!error) {
+        finishTest();
+      } else {
+        hideError();
+      }
+    });
   });
-});
+}
+
 
 export default {
   getTemplate,
   getData,
-  setName
+  setName,
+  submitHandler
 };

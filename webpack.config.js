@@ -34,7 +34,8 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: './src/index.html' }
+      { from: './src/index.html' },
+      { from: './src/favicon.ico' }
     ]),
     new ExtractTextPlugin('bundle.css')
   ],

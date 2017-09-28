@@ -1,4 +1,4 @@
-[{"id":1,"name":"Kathie","password":"ppauu6Q6vbQ0","admin":false},
+[{"id":1,"name":"admin","password":"admin","admin":true},
 {"id":2,"name":"Farly","password":"8NlEEm8","admin":false},
 {"id":3,"name":"Galvan","password":"mWyzanAl1","admin":false},
 {"id":4,"name":"Thayne","password":"PpJhjIMH","admin":false},

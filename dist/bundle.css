@@ -3953,6 +3953,10 @@ h3 {
     -ms-transform: scale(0.8);
     -o-transform: scale(0.8);
     transform: scale(0.8); }
+  .btn:disabled {
+    border: 2px solid #98999b;
+    background: #fff;
+    color: #98999b; }
 
 .input {
   width: 100%;

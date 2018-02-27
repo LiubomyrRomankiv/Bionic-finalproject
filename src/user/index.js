@@ -30,7 +30,6 @@ let findUser = (user) => {
   for(let i = 0; i < users.length; i++){
     if(user.login === users[i].name && user.pass === users[i].password){
       return users[i];
-      break;
     }
   }
   return false;

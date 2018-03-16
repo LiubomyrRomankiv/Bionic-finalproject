@@ -61,7 +61,6 @@ class HomePage extends Page {
       let that = this;
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        let hash = e.target.hash;
         let userName = userNameInput.value;
         if (userName) {
           that.setTestContent(userName);

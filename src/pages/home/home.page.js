@@ -1,6 +1,5 @@
 'use strict';
 
-import menu from 'menu';
 import test from 'test';
 import user from 'user';
 

@@ -1,6 +1,5 @@
 'use strict';
 
-import _ from 'lodash';
 import handlebars from 'handlebars';
 
 import router from 'router';

@@ -196,8 +196,7 @@ class AdminPage extends Page {
   }
 
   renderAnswers(type) {
-    let answerType = type;
-    dom.findElement('.answers-block', (answerType) => {
+    dom.findElement('.answers-block', () => {
       let formContainer = document.querySelector('.answers-block');
       let html = '';
       if ( type === 'radio' ){

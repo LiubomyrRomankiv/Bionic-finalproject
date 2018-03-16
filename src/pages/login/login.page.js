@@ -56,7 +56,6 @@ class LoginPage extends Page {
 
   findUser(userData) {
     let newActiveUser = user.findUser(userData);
-    let wraper = document.getElementById('login-page');
     if(newActiveUser) {
       user.setActiveUser(newActiveUser);
       userMenu.init();

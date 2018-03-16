@@ -1,8 +1,5 @@
 'use strict';
 
-import router from 'router';
-import menu from 'menu';
-
 import users from '../api/users.json';
 
 let init = () => {
@@ -38,7 +35,7 @@ let findUser = (user) => {
 let getStatus = () => {
   let userData = getUserData();
   if ( !!userData ){
-    if ( userData && !!userData.name ) {
+    if ( !!userData.name ) {
       if (userData.admin === true) {
         return {admin: true};
       }
